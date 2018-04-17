@@ -38,11 +38,11 @@ route.delete("/posts", (req, res) => {
             );
         });
 
-    }
-);
+    });
 
 route.post('/posts', (req, res) => {
     const postData = req.body;
+
     store.addPost(postData)
         .then(newPost => res.json({ newPost }));
 

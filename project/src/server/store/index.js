@@ -22,19 +22,19 @@ class Store {
         return this.source.searchProduct(searchParams);
     }
 
-    getPosts() {
+    getPosts() {                                //Uppgift 1
         return this.source.getPosts();
     }
 
-    getPost(id) {
+    getPost(id) {                               //Uppgift 1
         return this.source.getPost(id);
     }
     
-    addPost(postData) {
+    addPost(postData) {                         //Uppgift 1
         return this.source.addPost(postData);
     }
 
-    deletePost(Id){
+    deletePost(Id){                             //Uppgift 1
         return this.source.deletePost(Id);
     }
 }

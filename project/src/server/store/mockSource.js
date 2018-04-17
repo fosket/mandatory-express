@@ -11,7 +11,7 @@ const products = [
     }
 ];
 
-const posts = [
+const posts = [                                    //Uppgift 1
     {
         "userId": 1,
         "id": 1,
@@ -52,16 +52,16 @@ class mockSource {
         return Promise.resolve(newProduct);
     }
     
-    getPosts() {
+    getPosts() {                            //Uppgift 1
         return Promise.resolve(posts);
     }
-    getPost(id){
+    getPost(id){                            //Uppgift 1
         return new Promise((resolve, reject) => {
             const found = posts.find(post => post.id === +id);
             found ? resolve(found) : reject();
         });
     }
-    addPost({ userId, title, body }) {
+    addPost({ userId, title, body }) {      //Uppgift 1
         const lastIndex = posts.length - 1;
         const lastId = posts[lastIndex].id;
         const newPost = {
@@ -74,7 +74,7 @@ class mockSource {
 
         return Promise.resolve(newPost);
     }
-    deletePost(id){
+    deletePost(id){                         //Uppgift 1
         const index = posts.findIndex(item => item.id === id);
         const post = posts.find(post => post.id === +id);
         console.log(post);

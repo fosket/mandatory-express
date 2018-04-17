@@ -33,12 +33,12 @@ class EdumentSource {
 
         */
     }
-
+                                                                            //Uppgift 1
     getPosts() {
         return fetch('https://jsonplaceholder.typicode.com/posts')
             .then(response => response.json())
             .then(products => products);
-    }
+    }                                                                       //Uppgift 1
     getPost(id) {
         return fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
             .then(response => {
@@ -50,7 +50,7 @@ class EdumentSource {
             })
             .then(product => product);
 
-    }
+    }                                                                       //Uppgift 1
     addPost(post) {
         return fetch(`https://jsonplaceholder.typicode.com/posts`,{
             method: 'post',
@@ -62,7 +62,7 @@ class EdumentSource {
             .then(response => response.json());
 
     }
-    deletePost(id) {
+    deletePost(id) {                                                        //Uppgift 1
         return fetch(`https://jsonplaceholder.typicode.com/posts/${id}`,{
             method: 'delete',
         })

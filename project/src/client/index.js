@@ -52,16 +52,10 @@ fetch('/api/posts', {
 
   fetch("/api/posts", {
     method: "delete",
-    body: JSON.stringify({
-        id: 4
-    }),
-    headers: {
-        "Content-type": "application/json; charset=UTF-8"
-    }
+    
 })
     .then(response => response.json())
-    .then(res => console.log("Deleting post", res))
-    .catch(e => console.log("No such post", e));
+    .then(res => console.log("Deleting post", res));
 
 
 
