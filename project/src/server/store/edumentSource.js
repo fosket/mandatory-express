@@ -34,6 +34,42 @@ class EdumentSource {
         */
     }
 
+    getPosts() {
+        return fetch('https://jsonplaceholder.typicode.com/posts')
+            .then(response => response.json())
+            .then(products => products);
+    }
+    getPost(id) {
+        return fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw `Post with ID ${id} not found`;
+                }
+
+                return response.json();
+            })
+            .then(product => product);
+
+    }
+    addPost(post) {
+        return fetch(`https://jsonplaceholder.typicode.com/posts`,{
+            method: 'post',
+            body: JSON.stringify(post),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+            .then(response => response.json());
+
+    }
+    deletePost(id) {
+        return fetch(`https://jsonplaceholder.typicode.com/posts/${id}`,{
+            method: 'delete',
+        })
+            .then(response => {
+            return {id};
+        })
+    }
 }
 
 module.exports = EdumentSource;

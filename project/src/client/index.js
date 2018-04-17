@@ -27,7 +27,42 @@ fetch('/api/products', {
 
 // ------------ Testing new functionality -----------
 
-    // ... add code to make fetches to your new routes here ...
+fetch('/api/posts')
+    .then(response => response.json())
+    .then(posts => console.log("NEW: getting all posts", posts));
+
+fetch('/api/posts/2')
+    .then(response => response.json())
+    .then(posts => console.log("NEW: getting a single post", posts));
+
+fetch('/api/posts', {
+    method: 'post',
+    body: JSON.stringify({
+        userId: '1',
+        title: 'This post',
+        body: 'that content'
+    }),
+    headers: {
+        "Content-type": "application/json; charset=UTF-8"
+    }
+})
+    .then(response => response.json())
+    .then(res => console.log("NEW: adding a post", res))
+    .catch(e => console.log("NEW: Failed to add a new post", e));
+
+  fetch("/api/posts", {
+    method: "delete",
+    body: JSON.stringify({
+        id: 4
+    }),
+    headers: {
+        "Content-type": "application/json; charset=UTF-8"
+    }
+})
+    .then(response => response.json())
+    .then(res => console.log("Deleting post", res))
+    .catch(e => console.log("No such post", e));
+
 
 
 // ----------- CORS demonstration -------------
